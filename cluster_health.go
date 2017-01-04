@@ -93,8 +93,8 @@ func (s *ClusterHealthService) WaitForRelocatingShards(waitForRelocatingShards i
 
 // WaitForNoRelocatingShards can be used to wait until all shard relocationgs are finished.
 func (s *ClusterHealthService) WaitForNoRelocatingShards(waitForNoRelocatingShards bool) *ClusterHealthService {
-    s.waitForNoRelocatingShards = &waitForNoRelocatingShards
-    return s
+	s.waitForNoRelocatingShards = &waitForNoRelocatingShards
+	return s
 }
 
 // WaitForStatus can be used to wait until the cluster is in a specific state.
@@ -162,9 +162,9 @@ func (s *ClusterHealthService) buildURL() (string, url.Values, error) {
 	if s.waitForRelocatingShards != nil {
 		params.Set("wait_for_relocating_shards", fmt.Sprintf("%v", s.waitForRelocatingShards))
 	}
-    if s.waitForNoRelocatingShards != nil {
-        params.Set("wait_for_no_relocating_shards", fmt.Sprintf("%v", *s.waitForNoRelocatingShards))
-    }
+	if s.waitForNoRelocatingShards != nil {
+		params.Set("wait_for_no_relocating_shards", fmt.Sprintf("%v", *s.waitForNoRelocatingShards))
+	}
 	if s.waitForStatus != "" {
 		params.Set("wait_for_status", s.waitForStatus)
 	}
